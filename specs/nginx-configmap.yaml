@@ -12,8 +12,7 @@ data:
       listen  [::]:80;
       server_name  localhost;
       
-      access_log  /var/log/nginx/host.access.log log_format;    
-      
+      access_log  /var/log/nginx/host.access.log upstream_time; 
       location / {
       root   /usr/share/nginx/html;
       index  index.html index.htm;
