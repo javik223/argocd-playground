@@ -21,8 +21,13 @@ spec:
           volumeMounts:
             - mountPath: /etc/nginx/conf.d/
               name: config-volume
+            - mountPath: /usr/share/nginx/nice
+              name: pv-storage
 
       volumes:
         - name: config-volume
           configMap:
             name: guestbook-ui-config
+        - name: pv-storage
+          persistentVolumeClaim:
+            claimName: guestbook-pv-claim

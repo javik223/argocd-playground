@@ -1,0 +1,11 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: guestbook-pv-claim
+spec:
+  storageClassName: openebs-hostpath
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi
