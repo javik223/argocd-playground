@@ -2,6 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: guestbook-pv-claim
+  namespace: default
 spec:
   storageClassName: openebs-hostpath
   accessModes:
