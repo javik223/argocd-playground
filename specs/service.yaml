@@ -4,6 +4,7 @@ metadata:
   name: guestbook-ui
   namespace: default
 spec:
+  type: LoadBalancer
   ports:
     - port: 80
       targetPort: 80
