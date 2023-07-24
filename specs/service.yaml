@@ -5,6 +5,8 @@ metadata:
   namespace: default
 spec:
   type: LoadBalancer
+  externalIPs:
+    - 198.19.249.102
   ports:
     - port: 80
       targetPort: 80
