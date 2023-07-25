@@ -1,5 +1,5 @@
 kind: HorizontalPodAutoscaler
-apiVersion: autoscaling/v2
+apiVersion: autoscaling/v2beta2
 metadata:
   name: guestbook-ui-hpa
   namespace: default
@@ -18,7 +18,7 @@ spec:
           type: Utilization
           averageUtilization: 30
 
-   	- type: Resource
+    - type: Resource
       resource:
         name: memory
         target:
