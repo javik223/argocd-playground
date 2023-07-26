@@ -25,11 +25,11 @@ spec:
               name: pv-storage
           resources:
             limits:
-              cpu: 100m
-              memory: 200Mi
+              cpu: "100m"
+              memory: "128Mi"
             requests:
-              cpu: 50m
-              memory: 100Mi
+              cpu: "50m"
+              memory: "100Mi"
       volumes:
         - name: config-volume
           configMap:
