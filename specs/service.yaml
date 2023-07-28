@@ -4,9 +4,8 @@ metadata:
   name: guestbook-ui
   namespace: default
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 198.19.249.167
-
+#  type: LoadBalancer
+#  loadBalancerIP: 198.19.249.167
   ports:
     - port: 80
       targetPort: 80
