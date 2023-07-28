@@ -16,3 +16,7 @@ spec:
                 name: guestbook-ui-service
                 port:
                   number: 80
+  tls:
+    - hosts:
+        - guestbook.local
+      secretName: guestbook-tls
