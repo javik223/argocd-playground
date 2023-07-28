@@ -5,8 +5,6 @@ metadata:
   namespace: default
 spec:
     secretName: guestbook-tls
-    duration: 2160h # 90d
-    renewBefore: 360h # 15d
     commonName: guestbook.local
     dnsNames:
         - guestbook.local
