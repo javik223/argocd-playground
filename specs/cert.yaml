@@ -4,8 +4,12 @@ metadata:
   name: guestbook-certificate
   namespace: default
 spec:
+    isCA: true
     secretName: guestbook-tls
     commonName: guestbook.local
+    privateKey:
+      algorithm: ECDSA
+      size: 256
     dnsNames:
         - guestbook.local
     issuerRef:
