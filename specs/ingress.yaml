@@ -4,7 +4,7 @@ metadata:
   name: guestbook-ui-ingress
   namespace: default
 spec:
-  ingressClassName: traefik
+  ingressClassName: kong
   rules:
     - host: guestbook.local
       http:
