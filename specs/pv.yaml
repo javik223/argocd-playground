@@ -6,9 +6,9 @@ metadata:
 spec:
   storageClassName: openebs-hostpath
   capacity:
-    storage: 3Gi
+    storage: 4Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /mnt/data
+    path: /mnt/guestbook-data
     type: DirectoryOrCreate
