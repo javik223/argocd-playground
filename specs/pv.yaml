@@ -2,7 +2,7 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: guestbook-pv
-  namespace: default
+  namespace: guestbook
 spec:
   storageClassName: openebs-hostpath
   capacity:

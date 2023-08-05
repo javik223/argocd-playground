@@ -2,7 +2,7 @@ kind: HorizontalPodAutoscaler
 apiVersion: autoscaling/v2
 metadata:
   name: guestbook-ui-hpa
-  namespace: default
+  namespace: guestbook
 spec:
   maxReplicas: 3
   minReplicas: 1
