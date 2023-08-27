@@ -1,9 +1,11 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: guestbook-ui
   namespace: guestbook
 spec:
+  serviceName: guestbook-ui
+  replicas: 3
   selector:
     matchLabels:
       app: guestbook-ui
@@ -20,8 +22,8 @@ spec:
           volumeMounts:
             - mountPath: /etc/nginx/conf.d/
               name: config-volume
-            - mountPath: /usr/share/nginx/nice
-              name: pv-storage
+            - mountPath: /usr/share/nginx/html
+              name: www
           resources:
             limits:
               cpu: "100m"
@@ -33,6 +35,54 @@ spec:
         - name: config-volume
           configMap:
             name: guestbook-ui-config
-        - name: pv-storage
+        - name: www
           persistentVolumeClaim:
-            claimName: guestbook-pv-claim
+            claimName: www
+  volumeClaimTemplates:
+    - metadata:
+        name: www
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: longhorn
+        resources:
+          requests:
+            storage: 1Gi
+#---
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: guestbook-ui
+#  namespace: guestbook
+#spec:
+#  selector:
+#    matchLabels:
+#      app: guestbook-ui
+#  template:
+#    metadata:
+#      labels:
+#        app: guestbook-ui
+#    spec:
+#      containers:
+#        - image: nginx:alpine
+#          name: guestbook-ui
+#          ports:
+#            - containerPort: 80
+#          volumeMounts:
+#            - mountPath: /etc/nginx/conf.d/
+#              name: config-volume
+#            - mountPath: /usr/share/nginx/nice
+#              name: pv-storage
+#          resources:
+#            limits:
+#              cpu: "100m"
+#              memory: "128Mi"
+#            requests:
+#              cpu: "50m"
+#              memory: "100Mi"
+#      volumes:
+#        - name: config-volume
+#          configMap:
+#            name: guestbook-ui-config
+#        - name: pv-storage
+#          persistentVolumeClaim:
+#            claimName: guestbook-pv-claim
